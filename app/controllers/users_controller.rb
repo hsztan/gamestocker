@@ -19,9 +19,13 @@ class UsersController < ApplicationController
 
   post '/signup' do
     if !(params[:user][:username].strip.empty? || params[:user][:email].strip.empty? || params[:user][:password].strip.empty?)
-      @user = User.create(params[:user])
-      session[:user_id] = @user.id
-      redirect '/games'
+      if User.find_by(username: params[:user][:username])  ### If user already exists...
+        redirect '/'
+      else
+        @user = User.create(params[:user])
+        session[:user_id] = @user.id
+        redirect '/games'
+      end
     end
     redirect "/"
   end
