@@ -1,8 +1,11 @@
 class GamesController < ApplicationController
 
   get '/games' do
-    erb :'/games/games' if logged_in?
-    redirect "/"
+    if logged_in?
+      erb :'/games/games'
+    else
+      redirect "/"
+    end
   end
 
 end

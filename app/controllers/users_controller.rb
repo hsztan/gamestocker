@@ -14,10 +14,16 @@ class UsersController < ApplicationController
 
   get '/signup' do
 
+    erb :'/users/create_user'
   end
 
   post '/signup' do
-
+    if !(params[:user][:username].strip.empty? || params[:user][:email].strip.empty? || params[:user][:password].strip.empty?)
+      @user = User.create(params[:user])
+      session[:user_id] = @user.id
+      redirect '/games'
+    end
+    redirect "/"
   end
 
 end
