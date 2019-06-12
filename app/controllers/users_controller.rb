@@ -29,6 +29,7 @@ class UsersController < ApplicationController
         redirect '/games'
       end
     end
+    flash[:error] = "Please fill out all fields, don't be lazy!"
     redirect "/"
   end
 
