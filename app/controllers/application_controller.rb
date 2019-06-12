@@ -10,7 +10,12 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    erb :welcome
+    erb :index
+  end
+
+  post "/" do
+    redirect "/login" if params[:login]
+    redirect "/signup"
   end
 
   helpers do
