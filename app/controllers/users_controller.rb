@@ -20,6 +20,7 @@ class UsersController < ApplicationController
   post '/signup' do
     if !(params[:user][:username].strip.empty? || params[:user][:email].strip.empty? || params[:user][:password].strip.empty?)
       if User.find_by(username: params[:user][:username])  ### If user already exists...
+        # TODO: should show an error message that user is taken
         redirect '/'
       else
         @user = User.create(params[:user])
@@ -28,6 +29,13 @@ class UsersController < ApplicationController
       end
     end
     redirect "/"
+  end
+
+  get '/users' do
+    if logged_in?
+      @user = current_user
+      erb :'/users/show'
+    end
   end
 
 end
