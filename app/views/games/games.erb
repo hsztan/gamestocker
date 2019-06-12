@@ -1,12 +1,21 @@
 <% if @user.games.empty? %>
   <h1>This is where all you're games will be!</h1>
 <% else %>
+
   <h1>This is the list of your games <%=@user.username%></h1>
-  <div class="games-list">
-    <% @user.games.each do |game| %>
-      <ol>
-        <li><%= game.name %> for <%= game.console.name %></li>
-      </ol>
-    <% end %>
+  <div class="games-container">
+    <table class="games-table">
+      <tr>
+      <th>Game</th>
+      <th>Console</th>
+      </tr>
+      <% @user.games.each do |game| %>
+        <tr>
+          <td><%= game.name %></td>
+          <td><%= game.console.name %></td>
+        </tr>
+      <% end %>
+    </table>
   </div>
+
 <% end %>
