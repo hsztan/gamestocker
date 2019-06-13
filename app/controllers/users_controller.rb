@@ -13,6 +13,14 @@ class UsersController < ApplicationController
       redirect '/'
   end
 
+  post '/signout' do
+    if logged_in?
+      session.clear
+      flash[:error] = "You have been successfully signed out!"
+    end
+    erb :index  #If used a redirect to route '/' the flash[:error would be deleted]
+  end
+
   get '/signup' do
 
     erb :'/users/create_user'
