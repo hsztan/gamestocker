@@ -47,16 +47,17 @@ class GamesController < ApplicationController
     end
   end
 
-  # get '/games/:id/edit' do
-  #   redirect '/login' if !logged_in?
-  #   @game = Game.find(params[:id])
-  #   if current_user.games.include?(@game)
-  #     erb :'/games/edit_game'
-  #   else
-  #     flash[:error] = "Don't try to edit someone else's game or else..."
-  #     redirect '/games'
-  #   end
-  # end
+  get '/games/:id/edit' do
+    redirect '/login' if !logged_in?
+    @game = Game.find(params[:id])
+    if current_user.games.include?(@game)
+      @consoles = Console.all
+      erb :'/games/edit_game'
+    else
+      flash[:error] = "Don't try to edit someone else's game or else..."
+      redirect '/games'
+    end
+  end
   #
   # patch '/games/:id/edit' do
   #   redirect "/games/#{params[:id]}/edit" if params[:game][:name].empty?
