@@ -1,5 +1,9 @@
 <p class="error"><%= flash[:error] if flash[:error] %></p>
 
+<form action="/games/new" method="GET">
+<h4><input type="submit" value="Add Game" id="add-game"></h4>
+</form>
+
 <% if @user.games.empty? %>
   <h1>This is where all you're games will be!</h1>
 <% else %>
