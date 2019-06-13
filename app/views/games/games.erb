@@ -5,16 +5,22 @@
   <h1>This is the list of your games <%=@user.username%></h1>
   <div class="games-container">
     <table class="games-table">
-      <tr>
-      <th>Game</th>
-      <th>Console</th>
-      </tr>
-      <% @user.games.each do |game| %>
+      <thead>
         <tr>
-          <td><%= game.name %></td>
-          <td><%= game.console.name %></td>
+          <th>Game</th>
+          <th>Console</th>
+          <th>Misc.</th>
         </tr>
-      <% end %>
+      </thead>
+      <tbody>
+        <% @user.games.each do |game| %>
+          <tr>
+            <td><a href="games/<%= game.id %>"><%= game.name %></a></td>
+            <td><%= game.console.name %></td>
+            <td>misc.</td>
+          </tr>
+        <% end %>
+      </tbody>
     </table>
   </div>
 

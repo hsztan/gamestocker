@@ -9,4 +9,11 @@ class GamesController < ApplicationController
     end
   end
 
+  get '/games/:id' do
+    redirect "/" if !logged_in?
+
+    @game = Game.find_by(params)
+    erb :'/games/show_game'
+  end
+
 end

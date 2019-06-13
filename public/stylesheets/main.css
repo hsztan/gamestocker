@@ -12,6 +12,38 @@
   }
 
   /* --- Welcome Page Styles --- */
+
+  /* --- Game table style --- */
+
+  /* table.games-table {
+    border: 1px solid #948473;
+    background-color: #FFE3C6;
+    width: 100%;
+    text-align: center;
+  }
+  table.games-table td, table.games-table th {
+    border: 0px solid #948473;
+    padding: 4px 4px;
+  }
+  table.games-table tbody td {
+    font-size: 13px;
+  }
+  table.games-table thead {
+    background: #948473;
+    background: -moz-linear-gradient(top, #afa396 0%, #9e9081 66%, #948473 100%);
+    background: -webkit-linear-gradient(top, #afa396 0%, #9e9081 66%, #948473 100%);
+    background: linear-gradient(to bottom, #afa396 0%, #9e9081 66%, #948473 100%);
+  }
+  table.games-table thead th {
+    font-size: 17px;
+    font-weight: bold;
+    color: #F0F0F0;
+    text-align: center;
+  }
+  table.games-table tfoot td {
+    font-size: 16px;
+  } */
+
   body {
     background-color: lightblue;
     color: #333;
