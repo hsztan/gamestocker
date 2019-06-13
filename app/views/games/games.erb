@@ -1,3 +1,5 @@
+<p class="error"><%= flash[:error] if flash[:error] %></p>
+
 <% if @user.games.empty? %>
   <h1>This is where all you're games will be!</h1>
 <% else %>
