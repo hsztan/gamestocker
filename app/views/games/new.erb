@@ -1,13 +1,20 @@
 <h1>Add a game to your awesome library</h1>
-
+<br><br>
 <form action="/games/new" method="POST">
 
-  <h4>Select you're console:</h4>
-  <p><select name="console">
+  <h4>Select your game's console:
+    <select name="game[console_id]">
       <% @consoles.each do |console| %>
         <option value="<%= console.id %>"><%= console.name %></option>
       <% end %>
     </select>
-  </p>
+  </h4>
+  <h4>Or add a new console: <input type="text" name="console[name]" id="console-name"></h4>
+  <br><br>
+  <h4>What is the name of your game? <input type="text" name="game[name]"></h4>
+  <h4>Your game's genre? <input type="text" name="game[genre]"></h4>
+  <h4>What's your game about? <input type="text" name="game[info]"></h4>
+  <br><br>
+  <input type="submit" value="Create" id="submit">
 
 </form>
