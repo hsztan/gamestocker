@@ -37,7 +37,7 @@ class GamesController < ApplicationController
     if current_user.games.include?(@game)
       flash[:error] = "You have destroyed #{@game.name}, no going back now..."
       @game.destroy
-      erb :'/games'
+      redirect "/games"
     else
       flash[:error] = "Don't destroy a game that isn't yours please"
       redirect '/games'
