@@ -20,8 +20,12 @@ end
   get '/games/:id' do
     redirect "/" if !logged_in?
 
-    @game = Game.find_by(params)
-    erb :'/games/show_game'
+    if @game = Game.find_by(params)
+      erb :'/games/show_game'
+    else
+      flash[:error] = "Couldn't find that game!"
+      redirect "/games"
+    end
   end
 
   # get '/games/:id/edit' do
