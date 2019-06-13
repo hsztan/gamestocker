@@ -1,1 +1,13 @@
 <h1>Add a game to your awesome library</h1>
+
+<form action="/games/new" method="POST">
+
+  <h4>Select you're console:</h4>
+  <p><select name="console">
+      <% @consoles.each do |console| %>
+        <option value="<%= console.id %>"><%= console.name %></option>
+      <% end %>
+    </select>
+  </p>
+
+</form>

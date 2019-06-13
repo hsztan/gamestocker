@@ -10,12 +10,18 @@ class GamesController < ApplicationController
   end
 
   get '/games/new' do
-  if logged_in?
-    erb :'/games/new'
-  else
-    redirect '/'
+    if logged_in?
+      @consoles = Console.all
+      erb :'/games/new'
+    else
+      redirect '/'
+    end
   end
-end
+
+  post '/games/new' do
+    binding.pry
+    # TODO: create game for user with console
+  end
 
   get '/games/:id' do
     redirect "/" if !logged_in?
