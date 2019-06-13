@@ -19,8 +19,21 @@ class GamesController < ApplicationController
   end
 
   post '/games/new' do
-    binding.pry
-    # TODO: create game for user with console
+    # TODO: Validate if game with its given console already exist...
+    if params[:game][:name].strip.empty?
+      flash[:error] = "You´re game must have a name!"
+      redirect "/games/new"
+    elsif !params[:console][:name].strip.empty?
+      console = Console.create(params[:console])
+      params[:game][:console_id] = console.id
+      params[:game][:user_id] = current_user.id
+      game = Game.create(params[:game])
+      redirect '/games'
+    else
+      params[:game][:user_id] = current_user.id
+      game = Game.create(params[:game])
+      redirect "/games"
+    end
   end
 
   get '/games/:id' do
