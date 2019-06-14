@@ -1,7 +1,9 @@
 <h1>Edit your awesome game</h1>
 <br><br>
-<form action="/games/new" method="POST">
+<form action="/games/<%= @game.id  %>/edit" method="POST">
+  <input type="hidden" id="hidden" value="patch" name="_method">
 
+  <!-- Make the select to show the original console -->
   <h4>Select your game's console:
     <select name="game[console_id]">
       <% @consoles.each do |console| %>
@@ -11,9 +13,9 @@
   </h4>
   <h4>Or add a new console: <input type="text" name="console[name]" id="console-name"></h4>
   <br><br>
-  <h4>What is the name of your game? <input type="text" name="game[name]"></h4>
-  <h4>Your game's genre? <input type="text" name="game[genre]"></h4>
-  <h4>What's your game about? <input type="text" name="game[info]"></h4>
+  <h4>What is the name of your game? <input type="text" value="<%= @game.name %>" name="game[name]"></h4>
+  <h4>Your game's genre? <input type="text" value="<%= @game.genre %>" name="game[genre]"></h4>
+  <h4>What's your game about? <input type="text" value="<%= @game.info %>" name="game[info]"></h4>
   <br><br>
   <input type="submit" value="Edit" id="edit">
 

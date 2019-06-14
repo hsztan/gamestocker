@@ -58,13 +58,25 @@ class GamesController < ApplicationController
       redirect '/games'
     end
   end
-  #
-  # patch '/games/:id/edit' do
-  #   redirect "/games/#{params[:id]}/edit" if params[:game][:name].empty?
-  #   game = Tweet.find(params[:id])
-  #   game.update(params[:game])
-  #   redirect "/games/#{game.id}"
-  # end
+
+  patch '/games/:id/edit' do
+    if params[:game][:name].strip.empty?
+      flash[:error] = "You´re game must have a name!"
+      redirect "/games/new"
+    elsif !params[:console][:name].strip.empty?
+      console = Console.create(params[:console])
+      params[:game][:console_id] = console.id
+      game = Game.find(params[:id])
+      game.update(params[:game])
+      flash[:error] = "Your game was updated successfully!"
+      redirect '/games'
+    else
+      game = Game.find(params[:id])
+      game.update(params[:game])
+      flash[:error] = "Your game was updated successfully!"
+      redirect "/games"
+    end
+  end
 
   delete '/games/:id/delete' do
     redirect '/' if !logged_in?
