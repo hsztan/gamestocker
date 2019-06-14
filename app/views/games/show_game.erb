@@ -1,5 +1,7 @@
 <h1><%= @game.name %> is an awesome game of yours</h1>
 <h2>It's made for your <%= @game.console.name %> console</h2>
+<h3>Genre: <%= @game.genre %></h3>
+<h3>Info: <%= @game.info %></h3>
 
 <form action="/games/<%=@game.id%>/delete" method="POST">
   <input id="hidden" type="hidden" name="_method" value="delete">
@@ -9,7 +11,3 @@
 <form action="/games/<%=@game.id%>/edit" method="GET">
   <input type="submit" value="Edit Game" id="submit">
 </form>
-
-
-
-<!-- Add more info to show -->
