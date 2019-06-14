@@ -38,9 +38,13 @@ class GamesController < ApplicationController
 
   get '/games/:id' do
     redirect "/" if !logged_in?
-
     if @game = Game.find_by(params)
-      erb :'/games/show_game'
+      if current_user.games.include?(@game)
+        erb :'/games/show_game'
+      else
+        flash[:error] = "That game is not yours to seeeeee!"
+        redirect "/games"
+      end
     else
       flash[:error] = "Couldn't find that game!"
       redirect "/games"

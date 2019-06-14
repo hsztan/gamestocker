@@ -1,5 +1,5 @@
 <h1><%= @game.name %> is an awesome game of yours</h1>
-<h2>It's made for your <%= @game.console.name %> console</h2>
+<h2>It's made for your <%= @game.console.name if @game.console%> console</h2>
 <h3>Genre: <%= @game.genre %></h3>
 <h3>Info: <%= @game.info %></h3>
 
