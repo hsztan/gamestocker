@@ -22,7 +22,8 @@
         <tr>
           <th>Game</th>
           <th>Console</th>
-          <th>Misc.</th>
+          <th>Genre</th>
+          <th>Info</th>
         </tr>
       </thead>
       <tbody>
@@ -30,7 +31,8 @@
           <tr>
             <td><a href="games/<%= game.id %>"><%= game.name %></a></td>
             <td><%= game.console.name %></td>
-            <td>misc.</td>
+            <td><%= game.console.genre %></td>
+            <td><%= game.console.info %></td>
           </tr>
         <% end %>
       </tbody>

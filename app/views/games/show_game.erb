@@ -2,11 +2,14 @@
 <h2>It's made for your <%= @game.console.name %> console</h2>
 
 <form action="/games/<%=@game.id%>/delete" method="POST">
-<input id="hidden" type="hidden" name="_method" value="delete">
-<input type="submit" value="Delete Game" id="submit">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete Game" id="submit">
 </form>
 
 <form action="/games/<%=@game.id%>/edit" method="GET">
-<input type="submit" value="Edit Game" id="submit">
-
+  <input type="submit" value="Edit Game" id="submit">
 </form>
+
+
+
+<!-- Add more info to show -->
