@@ -7,7 +7,9 @@
   <h4>Select your game's console:
     <select name="game[console_id]">
       <% @consoles.each do |console| %>
-        <option value="<%= console.id %>"><%= console.name %></option>
+        <% if !console.name.strip.empty? %>
+          <option value="<%= console.id %>"><%= console.name %></option>
+        <% end %>
       <% end %>
     </select>
   </h4>
