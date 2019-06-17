@@ -67,6 +67,12 @@
     padding-top: 20px;
   }
 
+  .edit-game {
+    text-align: center;
+    border-top: 2px solid #ccc;
+    padding-top: 20px;
+  }
+
   table.games-table {
   border: 6px solid #948473;
   background-color: #FFE3C6;
@@ -111,7 +117,6 @@
   }
 
   h2 {
-    border-bottom: 2px solid #ccc;
     font-size: 24px;
     line-height: 36px;
     margin-bottom: 16px;
