@@ -1,38 +1,41 @@
 <p class="error"><%= flash[:error] if flash[:error] %></p>
-<h4>
-  <form action="/games/new" method="GET">
-    <input type="submit" value="Add Game" id="add-game">
-  </form>
-</h4>
 
-<h4>
-  <form action="/signout" method="POST">
-    <input type="submit" value="Signout" id="signout">
-  </form>
-</h4>
+<div class="games-container">
+  <div class=nav-games>
+    <form action="/games/new" method="GET">
+      <input type="submit" value="Add Game" id="add-game">
+    </form>
 
-<% if @user.games.empty? %>
-  <h1>This is where all you're games will be!</h1>
-<% else %>
-
-  <h1>This is the list of your games <%=@user.username%></h1>
-  <div class="games-container">
-    <table class="games-table">
-      <thead>
-        <tr>
-          <th>Game</th>
-          <th>Console</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @user.games.each do |game| %>
-          <tr>
-            <td><a href="games/<%= game.id %>"><%= game.name %></a></td>
-            <td><%= game.console.name %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <form action="/signout" method="POST">
+      <input type="submit" value="Signout" id="signout">
+    </form>
   </div>
+
+  <% if @user.games.empty? %>
+    <h1>This is where all you're games will be!</h1>
+  <% else %>
+
+    <h1>This is the list of your games <%=@user.username%></h1>
+
+    <div >
+      <table class="games-table">
+        <thead>
+          <tr>
+            <th>Game</th>
+            <th>Console</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @user.games.each do |game| %>
+            <tr>
+              <td><a href="games/<%= game.id %>"><%= game.name %></a></td>
+              <td><%= game.console.name %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+</div>
 
 <% end %>

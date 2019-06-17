@@ -1,14 +1,15 @@
-<h1>Login Plz</h1>
+<h1>Login Please!</h1>
+<div class="login">
+  <form action="/login" method="POST">
+      <p><label for="username">Username: </label>
+      <input type="text" id="username" name="username">
+      </p>
 
-<form action="/login" method="POST">
-  <p><label for="username">Username: </label>
-  <input type="text" id="username" name="username">
-  </p>
+      <p><label for="password">Password: </label>
+      <input type="password" id="password" name="password">
+      </p>
 
-  <p><label for="password">Password: </label>
-  <input type="password" id="password" name="password">
-  </p>
+      <p><input type="submit" value="Login"></p>
 
-  <p><input type="submit" value="Login"></p>
-
-</form>
+    </form>
+</div>
